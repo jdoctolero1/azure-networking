@@ -1,5 +1,5 @@
 # Azure Virtual Network
-This repository contains Bicep templates for deploying Primary and Disaster Recovery **Azure Virtual Network (VNet)**. 
+This repository contains Bicep templates for deploying a Primary and a Disaster Recovery **Azure Virtual Network (VNet)**. 
 
 ## Dependencies
 
