@@ -1,5 +1,7 @@
-[string]$PrimaryRegion = "centralus"
-[string]$DrRegion      = "eastus"
+param (
+    [string]$PrimaryRegion = "centralus",
+    [string]$DrRegion      = "eastus"
+)
 
 az deployment sub create `
   --location $PrimaryRegion `
