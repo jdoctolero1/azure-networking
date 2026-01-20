@@ -1,6 +1,6 @@
 targetScope = 'subscription'
 
-@description('Name of the Resource Group to create')
+@description('Name of the Resource Group to create. Fromat: rg-{environment}-network-{location}')
 param resourceGroupName string
 
 @description('Tags applied to the Resource Group')

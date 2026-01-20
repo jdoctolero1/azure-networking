@@ -1,12 +1,21 @@
 targetScope = 'subscription'
 
+@description('Region Location for all resources within this deployment')
 var location string = deployment().location
-param environment string
+
+@description('Resource Group name for the Network resources')
 var resourceGroupName string = 'rg-${environment}-network-${location}'
+
+@description('Virtual Network name')
 var vnetName string = 'vnet-${environment}-${location}'
 
+@description('Environment name (e.g., lab, dev, stg, prd)')
+param environment string
+
+@description('Address prefixes for the Virtual Network')
 param addressPrefix array
 
+@description('Subnets to create within the Virtual Network')
 param subnets array
 
 @description('Tags applied to the Resource Group')
