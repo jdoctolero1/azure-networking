@@ -25,7 +25,7 @@ param vnetLock object = {}
 param tags object = {}
 
 module rg '../modules/rg/main.bicep' = {
-  name: 'rg'
+  name: 'deploy-rg-${environment}-${location}'
   params: {
     resourceGroupName: resourceGroupName
     tags: tags
@@ -33,7 +33,7 @@ module rg '../modules/rg/main.bicep' = {
 }
 
 module vnet '../modules/vnet/main.bicep' = {
-  name: 'vnet'
+  name: 'deploy-vnet-${environment}-${location}'
   scope: resourceGroup(resourceGroupName)
   dependsOn: [
     rg

@@ -10,4 +10,9 @@ az deployment sub create `
   --template-file ../infra/main.bicep `
   --parameters ../environments/lab/primary.bicepparam
 
-  #TODO: Add DR region deployment once Bicep modules are updated
+Write-Host "[INFO] Creating lab network resources in Disaster Recovery Region: $DrRegion"
+az deployment sub create `
+  --name deploy-network-$DrRegion-$(Get-Date -Format 'yyyyMMddHHmmss') `
+  --location $DrRegion `
+  --template-file ../infra/main.bicep `
+  --parameters ../environments/lab/dr.bicepparam
