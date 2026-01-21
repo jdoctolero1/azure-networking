@@ -47,6 +47,11 @@ param subnets = [
   }
 ]
 
+param vnetLock = {
+  name: 'vnet-${environment}-delete-lock'
+  kind: 'CanNotDelete'
+}
+
 param tags = {
   Environment : environment
   Project     : 'AzureLab'

@@ -18,6 +18,9 @@ param addressPrefix array
 @description('Subnets to create within the Virtual Network')
 param subnets array
 
+@description('Lock object to apply to the Virtual Network (optional)')
+param vnetLock object = {}
+
 @description('Tags applied to the Resource Group')
 param tags object = {}
 
@@ -39,6 +42,7 @@ module vnet '../modules/vnet/main.bicep' = {
     addressPrefixes: addressPrefix
     vnetName: vnetName
     location: location
+    lock: vnetLock
     subnets: subnets
     tags: tags
   }
