@@ -5,14 +5,14 @@ param (
 
 Write-Host "[INFO] Creating lab network resources in Primary Region: $PrimaryRegion"
 az deployment sub create `
-  --name deploy-network-$PrimaryRegion-$(Get-Date -Format 'yyyyMMddHHmmss') `
+  --name deploy-network-$PrimaryRegion-$(Get-Date -Format 'yyyyMMddHHmm') `
   --location $PrimaryRegion `
   --template-file ./infra/main.bicep `
   --parameters ./environments/lab/primary.bicepparam
 
 Write-Host "[INFO] Creating lab network resources in Disaster Recovery Region: $DrRegion"
 az deployment sub create `
-  --name deploy-network-$DrRegion-$(Get-Date -Format 'yyyyMMddHHmmss') `
+  --name deploy-network-$DrRegion-$(Get-Date -Format 'yyyyMMddHHmm') `
   --location $DrRegion `
   --template-file ./infra/main.bicep `
   --parameters ./environments/lab/dr.bicepparam
