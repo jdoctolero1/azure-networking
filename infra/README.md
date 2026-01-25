@@ -12,6 +12,8 @@ This folder contains the top-level Bicep file used to deploy the networking infr
 - `../environments/lab/primary.bicepparam` — Primary parameter file for the lab environment.
 - `../environments/lab/dr.bicepparam` — DR parameter file for the lab environment.
 - `../scripts/deploy-network.ps1` — PowerShell helper script to run the deployment.
+- `peering.bicep` — Creates VNet peering post VNet deployment.
+- `../modules/vnet-peering/main.bicep` — Virtual network peering.
 
 ## Prerequisites
 

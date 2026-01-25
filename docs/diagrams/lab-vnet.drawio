@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.2.9 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.2.9">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
   <diagram name="Page-1" id="cCBdEQ2C2YleRx8OSQTq">
     <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -59,7 +59,7 @@
           <mxGeometry height="41.92" width="70" x="280" y="318.08" as="geometry" />
         </mxCell>
         <mxCell id="xV6anYwi32MHs7mh-YkE-60" connectable="0" parent="1" style="group" value="" vertex="1">
-          <mxGeometry height="699.04" width="422.55999999999995" x="460" y="50.96" as="geometry" />
+          <mxGeometry height="699.04" width="422.55999999999995" x="540" y="50.96" as="geometry" />
         </mxCell>
         <mxCell id="xV6anYwi32MHs7mh-YkE-44" parent="xV6anYwi32MHs7mh-YkE-60" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fillColor=#f5f5f5;strokeColor=#666666;fontSize=24;container=0;fontColor=#333333;" value="Disaster Recovery VNet Resources" vertex="1">
           <mxGeometry height="699.04" width="422.56" as="geometry" />
@@ -108,6 +108,15 @@
         </mxCell>
         <mxCell id="xV6anYwi32MHs7mh-YkE-59" parent="xV6anYwi32MHs7mh-YkE-60" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Subnet.svg;container=0;" value="subnet-lab-private-link&lt;br&gt;&lt;div&gt;11.7.0.0/24&lt;/div&gt;" vertex="1">
           <mxGeometry height="41.92" width="70" x="297.55999999999995" y="569.04" as="geometry" />
+        </mxCell>
+        <mxCell id="eneBISA0EDqcSxPA46UY-8" edge="1" parent="1" source="eneBISA0EDqcSxPA46UY-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4FCTdcY1An5KzkN4ZR4f-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eneBISA0EDqcSxPA46UY-9" edge="1" parent="1" source="eneBISA0EDqcSxPA46UY-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="xV6anYwi32MHs7mh-YkE-44" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eneBISA0EDqcSxPA46UY-1" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=light-dark(#4D8EFF,#B17DFF);strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.peering;" value="VNet Peering" vertex="1">
+          <mxGeometry height="43.78" width="43.78" x="470" y="378.59000000000003" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

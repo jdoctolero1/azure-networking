@@ -17,7 +17,7 @@ az deployment sub create `
   --name deploy-network-$PrimaryRegion-$(Get-Date -Format 'yyyyMMddHHmmss') `
   --location $PrimaryRegion `
   --template-file ../infra/main.bicep `
-  --parameters ../environments/stg/primary.bicepparambicepparam
+  --parameters ../environments/$Environment$/primary.bicepparambicepparam
 ```
 
 Notes

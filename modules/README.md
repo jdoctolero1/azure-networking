@@ -5,6 +5,7 @@ This folder contains reusable Bicep modules used by the top-level deployments in
 Overview
 - `rg/` — module that creates a subscription-scoped Resource Group and applies a delete lock.
 - `vnet/` — module that deploys a Virtual Network and its subnets into a resource group (expects a `scope` when called).
+- `vnet-peering/` — module that deploys VNet Peering betwen the Primary and DR VNets.
 
 Conventions
 - Modules accept well-named parameters (for example: `name`, `location`, `tags`, `lock`, `subnets`) and expose outputs where applicable.
@@ -20,6 +21,11 @@ Per-module notes
 	- Target scope: resource group (the caller sets `scope: resourceGroup(resourceGroupName)`).
 	- Parameters: `location`, `vnetName`, `addressPrefixes`, `subnets`, `tags`, and an optional `lock` object.
 	- Behavior: deploys the virtual network using a reusable public module and forwards `lock` through to that module.
+
+- `vnet-peering/main.bicep`
+    - Target scope: resource group (caller sets `scope` to the resource group containing one of the VNets; for peering, 
+    - Parameters: `localVnetName`, `remoteVnetId`, `peeringName`
+    - Behavior: creates/updates VNet peering one way
 
 Example usage (from `infra/main.bicep`)
 
@@ -45,6 +51,7 @@ module vnet '../modules/vnet/main.bicep' = {
 		tags: tags
 	}
 }
+
 ```
 
 How to extend
@@ -54,6 +61,3 @@ How to extend
 Troubleshooting
 - If a module fails to deploy, validate parameter shapes and types with `bicep build` and test the module locally with a small parameter file.
 - Ensure scopes match module expectations (`targetScope = 'subscription'` vs resource-group scoped modules).
-
-If you'd like, I can also add per-module inline examples or parameter schema snippets.
-

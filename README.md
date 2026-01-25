@@ -23,10 +23,10 @@ az login
 ./scripts/deploy-network.ps1
 ```
 
-## Alternatively you can specify the Primary and DR Region
+## Alternatively you can specify the Environment, Primary and DR Region
 
 ```powershell 
-./scripts/deploy-network.ps1 -PrimaryRegion westus2 -DrRegion eastus2
+./scripts/deploy-network.ps1 -Environment lab -PrimaryRegion westus2 -DrRegion eastus2
 ```
 
 ## Resource Group and VNet Build
@@ -38,3 +38,4 @@ az login
 - **Virtual Networks (VNet)**
 - **VNet Delete Lock**
 - **Subnets**
+- **VNet Peering**

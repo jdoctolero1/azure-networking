@@ -5,8 +5,11 @@ This folder contains helper scripts to deploy the networking Bicep templates. Th
 What the script does
 - Runs `az deployment sub create` twice: once for the primary region and once for the DR region.
 - Uses `infra/main.bicep` as the template and the `environments/lab/*.bicepparam` files for parameters.
+- Runs `az deployment sub create` once: to create the VNet peering between the primary and DR VNets.
+- Uses `infra/peering.bicep` as the template for VNet peering creation.
 
 Parameters
+- `Environment` (default `lab`) — The environment name, eg: lab, dev, stg, prd. The environment must be setup in the ./environments directoy.
 - `PrimaryRegion` (default `centralus`) — Azure location for the primary deployment.
 - `DrRegion` (default `eastus`) — Azure location for the DR deployment.
 
@@ -16,12 +19,12 @@ Example (PowerShell)
 # Run with defaults
 ./scripts/deploy-network.ps1
 
-# Run with custom regions
-./scripts/deploy-network.ps1 -PrimaryRegion westus2 -DrRegion eastus2
+# Run with custom environment and/or regions
+./scripts/deploy-network.ps1 -Environment lab -PrimaryRegion westus2 -DrRegion eastus2
 ```
 
 Adding other environments
-- The script currently points to the `lab` parameter files (`environments/lab/primary.bicepparam` and `environments/lab/dr.bicepparam`). You may modify the script to use other environment folders (for example `environments/dev`) or add new parameter-file arguments to the script to support multiple environments.
+- The script currently defaults to the `lab` parameter files (`environments/lab/primary.bicepparam` and `environments/lab/dr.bicepparam`). You may modify the script to use other environment folders (for example `environments/dev`) or add new parameter-file arguments to the script to support multiple environments.
 
 Notes & troubleshooting
 - Ensure you're logged in with `az login` and your subscription context is set (if required) before running the script.
