@@ -1,6 +1,10 @@
 # Azure Virtual Network
 This repository contains Bicep templates for deploying a Primary and a Disaster Recovery **Azure Virtual Network (VNet)**. 
 
+## Use Case
+The networking used in this repo is great for a lab or developer setup. It will help you quickly get networking up and running.
+For enterprise networking please consider a more advanced approach such as the hub/spoke model. 
+
 ## Prerequisites
 
 - Azure CLI Installed
