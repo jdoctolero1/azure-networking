@@ -1,19 +1,21 @@
-## Deployment Scripts
+# Scripts
 
-This folder contains helper scripts to deploy the networking Bicep templates. The primary helper is `deploy-network.ps1`, which runs two subscription-scoped deployments (Primary and DR) using the `lab` environment parameter files.
+This folder contains helper scripts to deploy the networking Bicep templates. The primary deployment script is `deploy-network.ps1`, which runs two subscription-scoped deployments (Primary and DR) using the `lab` environment parameter files.
 
-What the script does
+Included is a what-if script to preview infrastructure changes that will be applied if the deployment script is run.
+
+## What the deployment script does
 - Runs `az deployment sub create` twice: once for the primary region and once for the DR region.
 - Uses `infra/main.bicep` as the template and the `environments/lab/*.bicepparam` files for parameters.
 - Runs `az deployment sub create` once: to create the VNet peering between the primary and DR VNets.
 - Uses `infra/peering.bicep` as the template for VNet peering creation.
 
-Parameters
+### Parameters
 - `Environment` (default `lab`) — The environment name, eg: lab, dev, stg, prd. The environment must be setup in the ./environments directoy.
 - `PrimaryRegion` (default `centralus`) — Azure location for the primary deployment.
 - `DrRegion` (default `eastus`) — Azure location for the DR deployment.
 
-Example (PowerShell)
+### Example - deploy-network.ps1
 
 ```powershell
 # Run with defaults
@@ -23,10 +25,20 @@ Example (PowerShell)
 ./scripts/deploy-network.ps1 -Environment lab -PrimaryRegion westus2 -DrRegion eastus2
 ```
 
-Adding other environments
+### Example - what-if.ps1
+
+```powershell
+# Run with defaults
+./scripts/what-if.ps1
+
+# Run with custom environment and/or regions
+./scripts/what-if.ps1 -Environment lab -PrimaryRegion westus2 -DrRegion eastus2
+```
+
+### Adding other environments
 - The script currently defaults to the `lab` parameter files (`environments/lab/primary.bicepparam` and `environments/lab/dr.bicepparam`). You may modify the script to use other environment folders (for example `environments/dev`) or add new parameter-file arguments to the script to support multiple environments.
 
-Notes & troubleshooting
+### Notes & troubleshooting
 - Ensure you're logged in with `az login` and your subscription context is set (if required) before running the script.
 - The script uses subscription-scoped deployments (`az deployment sub create`) — confirm you have sufficient permissions to deploy at subscription scope.
 - To run deployments for a single region only, edit the script to remove the second `az deployment` call or run the command manually with the desired parameter file.
