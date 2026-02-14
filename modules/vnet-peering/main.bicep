@@ -19,3 +19,5 @@ resource peering 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2023-
     useRemoteGateways: false
   }
 }
+
+output peeringId string = peering.id

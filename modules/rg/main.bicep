@@ -16,3 +16,5 @@ module resourceGroup 'br/public:avm/res/resources/resource-group:0.4.3' = {
     tags: tags
   }
 }
+
+output resourceGroupId string = resourceGroup.outputs.resourceId

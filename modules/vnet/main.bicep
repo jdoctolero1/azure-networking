@@ -26,3 +26,5 @@ module virtualNetwork 'br/public:avm/res/network/virtual-network:0.1.0' = {
     tags: tags
   }
 }
+
+output vnetId string = virtualNetwork.outputs.resourceId

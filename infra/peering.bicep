@@ -53,3 +53,6 @@ module drToPrimary '../modules/vnet-peering/main.bicep' = {
     peeringName: drPeeringName
   }
 }
+
+output primaryPeeringId string = primaryToDr.outputs.peeringId
+output drPeeringId string = drToPrimary.outputs.peeringId
