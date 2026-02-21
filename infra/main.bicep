@@ -24,9 +24,8 @@ param vnetLock object = {}
 @description('Tags applied to the Resource Group')
 param tags object = {}
 
-//TODO: fix deploy name to be deploy-rg-${environment-network-${location}
 module rg '../modules/rg/main.bicep' = {
-  name: 'deploy-rg-${environment}-${location}'
+  name: 'deploy-rg-${environment}-network-${location}'
   params: {
     resourceGroupName: resourceGroupName
     tags: tags
