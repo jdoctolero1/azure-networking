@@ -2,7 +2,7 @@ using '../../infra/main.bicep'
 
 var firstOctet = 11
 param environment = 'lab'
-param addressPrefix = ['${firstOctet}.0.0.0/16']
+param addressPrefix = ['${firstOctet}.0.0.0/8']
 var bastionSubnet = 'AzureBastionSubnet'
 var gatewaySubnet = 'GatewaySubnet'
 var azureFirewallSubnet string = 'AzureFirewallSubnet'
@@ -15,35 +15,35 @@ var privateLinkSubnet string = 'subnet-${environment}-private-link'
 param subnets = [
   {
     name: bastionSubnet
-    addressPrefix: '${firstOctet}.0.1.0/27'
+    addressPrefix: '${firstOctet}.0.0.0/26'
   }
   {
     name: gatewaySubnet
-    addressPrefix: '${firstOctet}.0.2.0/27'
+    addressPrefix: '${firstOctet}.1.0.0/26'
   }
   {
     name: azureFirewallSubnet
-    addressPrefix: '${firstOctet}.0.3.0/24'
+    addressPrefix: '${firstOctet}.2.0.0/24'
   }
   {
     name: azureFirewallManagementSubnet
-    addressPrefix: '${firstOctet}.0.4.0/24'
+    addressPrefix: '${firstOctet}.3.0.0/24'
   }
   {
     name: adminSubnet
-    addressPrefix: '${firstOctet}.0.10.0/24'
+    addressPrefix: '${firstOctet}.4.0.0/16'
   }
   {
     name: appSubnet
-    addressPrefix: '${firstOctet}.0.20.0/24'
+    addressPrefix: '${firstOctet}.5.0.0/16'
   }
   {
     name: dataSubnet
-    addressPrefix: '${firstOctet}.0.30.0/24'
+    addressPrefix: '${firstOctet}.6.0.0/16'
   }
   {
     name: privateLinkSubnet
-    addressPrefix: '${firstOctet}.0.40.0/24'
+    addressPrefix: '${firstOctet}.7.0.0/16'
   }
 ]
 
