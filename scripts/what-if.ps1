@@ -18,7 +18,7 @@ az deployment sub what-if `
   --template-file ./infra/main.bicep `
   --parameters ./environments/$Environment/dr.bicepparam
 
-Write-Host "[INFO] What is $Environment VNet Peering from Primary to DR region is deployed"
+Write-Host "[INFO] What if $Environment VNet Peering from Primary to DR region is deployed"
 az deployment sub what-if `
   --name deploy-$Environment-network-peering-$(Get-Date -Format 'yyyyMMddHHmm') `
   --location $PrimaryRegion `
