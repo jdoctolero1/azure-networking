@@ -7,6 +7,7 @@ var bastionSubnet = 'AzureBastionSubnet'
 var gatewaySubnet = 'GatewaySubnet'
 var azureFirewallSubnet string = 'AzureFirewallSubnet'
 var azureFirewallManagementSubnet string = 'AzureFirewallManagementSubnet'
+var webSubnet string = 'subnet-${environment}-web'
 var adminSubnet string = 'subnet-${environment}-admin'
 var appSubnet string = 'subnet-${environment}-app'
 var dataSubnet string = 'subnet-${environment}-data'
@@ -34,16 +35,20 @@ param subnets = [
     addressPrefix: '${firstOctet}.4.0.0/16'
   }
   {
-    name: appSubnet
+    name: webSubnet
     addressPrefix: '${firstOctet}.5.0.0/16'
   }
   {
-    name: dataSubnet
+    name: appSubnet
     addressPrefix: '${firstOctet}.6.0.0/16'
   }
   {
-    name: privateLinkSubnet
+    name: dataSubnet
     addressPrefix: '${firstOctet}.7.0.0/16'
+  }
+  {
+    name: privateLinkSubnet
+    addressPrefix: '${firstOctet}.8.0.0/16'
   }
 ]
 
